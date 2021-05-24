@@ -1,0 +1,15 @@
+<div>
+  <mat-toolbar>
+    <span class="example-spacer"></span>
+    <div fxShow="true" fxHide.lt-md="true">
+      <a routerLink="/home" mat-button class="header-button">Home</a>
+      <a routerLink="/products" mat-button class="header-button">Products</a>
+    </div>
+    <span class="flexExpand"></span>
+    <div style="font-size: 15px" color="primary">
+      <mat-icon style="font-size: 25px">person</mat-icon>
+      {{name}}
+    </div>
+    <button class="header-button" mat-button (click)="logout()">LOGOUT</button>
+  </mat-toolbar>
+</div>

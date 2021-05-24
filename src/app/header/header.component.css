@@ -1,0 +1,9 @@
+.flexExpand {
+    flex: 1 1 auto;
+}
+
+.header-button {
+    background-color: lightseagreen;
+    color: #fff;
+    margin-left: 20px;
+}

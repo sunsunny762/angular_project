@@ -1,0 +1,31 @@
+<app-header></app-header>
+<mat-toolbar fxLayoutAlign="center center" class="product-bar" color="primary">Product Page</mat-toolbar>
+<button mat-button fxLayoutAlign="left" (click)="addProduct()" color="primary">ADD PRODUCT</button>
+<div fxLayout="row wrap">
+    <mat-card class="product-card" fxFlex="25" *ngFor="let product of products; let i = index">
+        <mat-card-header>
+            <mat-card-title fxLayoutAlign="center center">
+                <h3>{{ product.name }}</h3>
+            </mat-card-title>
+            <mat-card-actions *ngIf="(product.userId ==  userId); else elseBlock"><button mat-button
+                    (click)="deleteList(product.id)" color="warn">
+                    REMOVE WISH LIST
+                </button></mat-card-actions>
+            <ng-template mat-card-actions #elseBlock><button mat-button (click)="addList(product.id)" color="warn">
+                    ADD WISH LIST
+                </button></ng-template>
+        </mat-card-header>
+        <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+        <mat-card-content>
+            <p>{{ product.price | currency:'USD':true }}</p>
+            <p>
+                {{ product.description }}
+            </p>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-button (click)="openDialog(product.id)" color="accent">EDIT</button>
+            <button mat-button (click)="deleteProduct(product.id)" color="warn">DELETE</button>
+        </mat-card-actions>
+
+    </mat-card>
+</div>
